@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import useMeasure from "react-use-measure";
 import { useState, useEffect } from "react";
-import { ChevronLeftIcon } from "@heroicons/react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 
 export default function Slider() {
   let [count, setCount] = useState(0);
@@ -9,7 +9,7 @@ export default function Slider() {
   let [ref, { width }] = useMeasure();
   let direction = count > previous ? 1 : -1;
 
-  const nums = [...Array(10).keys()];
+  const nums = [...Array(4).keys()];
 
   const imgs = nums.map((num) => {
     return `https://picsum.photos/id/${num + 1}/200`;
@@ -17,23 +17,31 @@ export default function Slider() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log(count);
-      if (count != imgs.length - 1) {
+      if (count < imgs.length - 1) {
         setCount(count + 1);
       } else {
         setCount(0);
       }
-    }, 1500);
+    }, 3000);
     return () => clearInterval(interval);
   }, [count]);
 
   return (
-    <div className=" ">
-      <button onClick={() => setCount(count + 1)}>cunt</button>
-      <div
-        ref={ref}
-        className=" w-full h-[200px] flex relative overflow-hidden items-center justify-center"
-      >
+    <div
+      ref={ref}
+      className="w-full h-[200px] flex flex-row relative items-center justify-center overflow-hidden"
+    >
+      {count > 0 && (
+        <button onClick={() => setCount(count + 1)}>
+          <ChevronLeftIcon className="h-5 w-5 text-blue-500 absolute left-4 self-center" />
+        </button>
+      )}
+      {count != imgs.length - 1 && (
+        <button onClick={() => setCount(count + 1)}>
+          <ChevronRightIcon className="h-5 w-5 text-blue-500 absolute right-4 self-center" />
+        </button>
+      )}
+      <div className="">
         <AnimatePresence exitBeforeEnter custom={{ direction, width }}>
           <motion.div
             key={count}
@@ -41,6 +49,7 @@ export default function Slider() {
             initial="enter"
             animate="center"
             exit="exit"
+            transition={transition}
             custom={{ direction, width }}
           >
             <img src={imgs[count]} />
@@ -60,6 +69,8 @@ let variants = {
     x: direction * -width,
   }),
 };
+
+const transition = { duration: 0.6, ease: [0.6, 0.01, -0.05, 0.9] };
 
 function usePrevious(state) {
   let [tuple, setTuple] = useState([state, null]);
