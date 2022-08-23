@@ -18,7 +18,7 @@ export default function Slider() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (count < imgs.length - 1) {
+      if (count < 4 - 1) {
         setCount((prev) => prev + 1);
       } else {
         setCount(0);

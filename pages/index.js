@@ -9,7 +9,12 @@ export default function Home() {
       <Nav />
       <div className="flex flex-col gap-y-8">
         <div className="relative w-screen h-[90vh]">
-          <Image src="/josh_first_small.jpg" layout="fill" objectFit="cover" />
+          <Image
+            alt="JC portrait"
+            src="/josh_first_small.jpg"
+            layout="fill"
+            objectFit="cover"
+          />
         </div>
         <About />
         <Slider />

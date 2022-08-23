@@ -12,13 +12,13 @@ const About = () => {
       </p>
       <br />
       <p>
-        I've interviewed artists including{" "}
+        I&apos;ve interviewed artists including{" "}
         <span className="text-red-500">Metallica</span>,{" "}
         <span className="text-red-500">Pearl Jam</span>,{" "}
         <span className="text-red-500">Wu-Tang Clan</span>,{" "}
         <span className="text-red-500">Gary Numan</span> and{" "}
-        <span className="text-red-500">Rage Against The Machine</span>. I've
-        also produced work for clients including{" "}
+        <span className="text-red-500">Rage Against The Machine</span>.
+        I&apos;ve also produced work for clients including{" "}
         <span className="text-red-500"> Mckinsey & Company</span>,{" "}
         <span className="text-red-500">Fender</span>,{" "}
         <span className="text-red-500">Uber</span>,{" "}
@@ -28,7 +28,7 @@ const About = () => {
       </p>
       <br />
       <p>
-        I've been interviewed by platforms such as{" "}
+        I&apos;ve been interviewed by platforms such as{" "}
         <span className="text-red-500">Vice</span>,{" "}
         <span className="text-red-500">BBC</span>,{" "}
         <span className="text-red-500">Mixmag</span> and{" "}
