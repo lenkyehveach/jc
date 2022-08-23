@@ -5,11 +5,15 @@ const ListContainer = ({ items, vids = false }) => {
     <div className="flex flex-col md:flex-row w-screen md:w-full overflow-scroll gap-y-10 mt-5">
       {items.map((item) => {
         return (
-          <div className="flex flex-col h-[100vw] text-center gap-y-2">
+          <div
+            key={item.title}
+            className="flex flex-col h-[100vw] text-center gap-y-2"
+          >
             <div className="w-full flex flex-row justify-center">
               {!vids && (
-                <a key={item.key} href={item.href}>
+                <a href={item.href}>
                   <Image
+                    alt="article cover photo"
                     src={item.src}
                     width={289}
                     height={289}

@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import { MenuIcon } from "@heroicons/react/solid";
 import { Instagram } from "@material-ui/icons";
 
+import Image from "next/image";
+
 import Link from "next/link";
 
 const sections = [
@@ -78,7 +80,12 @@ const Nav = () => {
             {links.map((link) => {
               return (
                 <a href={link.href} key={link.id}>
-                  <img src={link.src}></img>
+                  <Image
+                    src={link.src}
+                    alt="company logo"
+                    width={48}
+                    height={48}
+                  />
                 </a>
               );
             })}

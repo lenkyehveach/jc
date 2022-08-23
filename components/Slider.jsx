@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import useMeasure from "react-use-measure";
 import { useState, useEffect } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
+import Image from "next/image";
 
 export default function Slider() {
   let [count, setCount] = useState(0);
@@ -37,7 +38,7 @@ export default function Slider() {
         </button>
       )}
       {count != imgs.length - 1 && (
-        <button onClick={() => setCount(count + 1)}>
+        <button onClick={() => setCount((prev) => prev + 1)}>
           <ChevronRightIcon className="h-5 w-5 text-blue-500 absolute right-4 self-center" />
         </button>
       )}
@@ -52,7 +53,13 @@ export default function Slider() {
           transition={transition}
           custom={{ direction, width }}
         >
-          <img src={imgs[count]} />
+          <Image
+            src={imgs[count]}
+            alt="client logo"
+            width={200}
+            height={200}
+            objectFit="cover"
+          />
         </motion.div>
       </AnimatePresence>
     </div>
