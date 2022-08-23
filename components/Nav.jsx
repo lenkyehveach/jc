@@ -62,12 +62,13 @@ const Nav = () => {
           unlockScroll();
         }}
         show={showModal}
+        scrollLock={unlockScroll}
       >
         <div className="w-full grow flex flex-col place-content-center no-scroll">
           {sections.map((section, index) => {
             return (
               <div className="text-black text-center h-16 w-full " key={index}>
-                <Link href={section.href}>
+                <Link onClick={() => unlockScroll()} href={section.href}>
                   <a>{section.text}</a>
                 </Link>
               </div>

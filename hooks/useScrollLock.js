@@ -2,6 +2,7 @@ import { useCallback } from "react";
 
 export const useScrollLock = () => {
   const lockScroll = useCallback(() => {
+    window.scrollTo(0, 0);
     document.body.style.overflow = "hidden";
   }, []);
 

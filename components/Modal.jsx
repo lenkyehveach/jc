@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { XIcon } from "@heroicons/react/solid";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Modal = ({ show, onClose, children }) => {
+const Modal = ({ show, onClose, scrollLock, children }) => {
   const [isBrowser, setIsBrowser] = useState(false);
 
   useEffect(() => {

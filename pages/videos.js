@@ -1,7 +1,10 @@
 import Nav from "../components/Nav";
 import ListContainer from "../components/ListContainer";
+import { useScrollLock } from "../hooks/useScrollLock";
 
 function Videos() {
+  const { unlockScroll } = useScrollLock();
+  unlockScroll();
   return (
     <>
       <Nav />
