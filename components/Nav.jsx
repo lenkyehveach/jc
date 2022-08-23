@@ -3,7 +3,6 @@ import Modal from "./Modal";
 import { useScrollLock } from "../hooks/useScrollLock";
 import { useRouter } from "next/router";
 import { MenuIcon } from "@heroicons/react/solid";
-import { Instagram } from "@material-ui/icons";
 
 import Image from "next/image";
 
