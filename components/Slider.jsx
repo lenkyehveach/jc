@@ -18,7 +18,7 @@ export default function Slider() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (count < imgs.length - 1) {
-        setCount(count + 1);
+        setCount((prev) => prev + 1);
       } else {
         setCount(0);
       }
@@ -29,7 +29,7 @@ export default function Slider() {
   return (
     <div
       ref={ref}
-      className="w-full h-[200px] flex flex-row relative items-center justify-center overflow-hidden"
+      className="w-full h-[200px] flex flex-row  items-center justify-center overflow-hidden"
     >
       {count > 0 && (
         <button onClick={() => setCount(count + 1)}>
@@ -41,21 +41,20 @@ export default function Slider() {
           <ChevronRightIcon className="h-5 w-5 text-blue-500 absolute right-4 self-center" />
         </button>
       )}
-      <div className="">
-        <AnimatePresence exitBeforeEnter custom={{ direction, width }}>
-          <motion.div
-            key={count}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={transition}
-            custom={{ direction, width }}
-          >
-            <img src={imgs[count]} />
-          </motion.div>
-        </AnimatePresence>
-      </div>
+
+      <AnimatePresence exitBeforeEnter custom={{ direction, width }}>
+        <motion.div
+          key={count}
+          variants={variants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={transition}
+          custom={{ direction, width }}
+        >
+          <img src={imgs[count]} />
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }
