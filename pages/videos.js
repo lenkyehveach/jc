@@ -1,10 +1,13 @@
 import Nav from "../components/Nav";
 import ListContainer from "../components/ListContainer";
 import { useScrollLock } from "../hooks/useScrollLock";
+import { useEffect } from "react";
 
 function Videos() {
   const { unlockScroll } = useScrollLock();
-  unlockScroll();
+  useEffect(() => {
+    unlockScroll();
+  }, []);
   return (
     <>
       <Nav />

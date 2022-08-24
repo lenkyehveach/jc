@@ -1,9 +1,14 @@
 import Nav from "../components/Nav";
 import ListContainer from "../components/ListContainer";
 import { useScrollLock } from "../hooks/useScrollLock";
+import { useEffect } from "react";
 
 function Articles() {
   const { unlockScroll } = useScrollLock();
+  useEffect(() => {
+    unlockScroll();
+  }, []);
+
   const articles = [
     {
       title: "Live Report: Flow Festival 2022",
@@ -25,8 +30,6 @@ function Articles() {
     //   href: "https://www.clashmusic.com/features/live-report-black-deer-festival/",
     // },
   ];
-
-  unlockScroll();
 
   return (
     <>

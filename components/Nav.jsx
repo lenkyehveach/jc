@@ -69,8 +69,8 @@ const Nav = () => {
           {sections.map((section, index) => {
             return (
               <div className="text-black text-center h-16 w-full " key={index}>
-                <Link onClick={() => unlockScroll()} href={section.href}>
-                  <a>{section.text}</a>
+                <Link href={section.href}>
+                  <a onClick={() => unlockScroll()}>{section.text}</a>
                 </Link>
               </div>
             );
