@@ -36,7 +36,7 @@ const links = [
   },
 ];
 
-const Nav = () => {
+const Nav = ({ mobile }) => {
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
   const { lockScroll, unlockScroll } = useScrollLock();
@@ -44,7 +44,7 @@ const Nav = () => {
 
   // order in the list never changes
 
-  return (
+  const mobileNav = (
     <div className="sticky top-0 z-20 h-20 flex flex-row justify-start items-center gap-x-2 pl-3 bg-white">
       <button
         onClick={() => {
@@ -54,7 +54,9 @@ const Nav = () => {
       >
         <MenuIcon className="h-12 w-12 " />
       </button>
-      <h1 className="">{typeof current !== "undefined" ? current.text : ""}</h1>
+      <h1 className="">
+        {typeof current !== "undefined" ? current.text : "Josh Crowe"}
+      </h1>
 
       {/* modal */}
       <Modal
@@ -65,7 +67,7 @@ const Nav = () => {
         show={showModal}
         scrollLock={unlockScroll}
       >
-        <div className="w-full grow flex flex-col place-content-center no-scroll">
+        <div className="w-full grow flex flex-col place-content-center ">
           {sections.map((section, index) => {
             return (
               <div className="text-black text-center h-16 w-full " key={index}>
@@ -92,6 +94,46 @@ const Nav = () => {
         </div>
       </Modal>
     </div>
+  );
+
+  const desktopSidebar = (
+    <div className="self-center flex flex-col w-[15vw] place-content-center h-[90vh] space-y-3  ">
+      <div className="text-end self-center text-[48px] mb-12">
+        <h1 className="justify-self-center">Josh Crowe</h1>{" "}
+      </div>
+      <div className="w-full flex flex-col place-content-center space-y-3">
+        {sections.map((section, index) => {
+          return (
+            <div className="text-black text-center h-16 w-full " key={index}>
+              <Link href={section.href}>
+                <a onClick={() => unlockScroll()}>{section.text}</a>
+              </Link>
+            </div>
+          );
+        })}
+        <div className="flex flex-row place-content-center space-x-7">
+          {links.map((link) => {
+            return (
+              <a href={link.href} key={link.id}>
+                <Image
+                  src={link.src}
+                  alt="company logo"
+                  width={48}
+                  height={48}
+                />
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <>
+      {mobile && mobileNav}
+      {!mobile && desktopSidebar}
+    </>
   );
 };
 

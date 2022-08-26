@@ -2,9 +2,11 @@ import Nav from "../components/Nav";
 import ListContainer from "../components/ListContainer";
 import { useScrollLock } from "../hooks/useScrollLock";
 import { useEffect } from "react";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 function Articles() {
   const { unlockScroll } = useScrollLock();
+  const { width } = useWindowSize();
   useEffect(() => {
     unlockScroll();
   }, []);
@@ -32,11 +34,10 @@ function Articles() {
   ];
 
   return (
-    <>
-      <Nav />
-
+    <div className="flex flex-col md:flex-row md:h-screen place-content-center">
+      <Nav mobile={width >= 720 ? false : true} />
       <ListContainer items={articles} />
-    </>
+    </div>
   );
 }
 

@@ -2,14 +2,14 @@ import Image from "next/image";
 
 const ListContainer = ({ items, vids = false }) => {
   return (
-    <div className="flex flex-col md:flex-row w-screen md:w-full overflow-scroll gap-y-10 mt-5">
+    <div className="self-center flex flex-col md:flex-row flex-wrap gap-10 mt-5 md:mt-0 h-full md:h-[90vh] md:w-[60vw] place-content-center">
       {items.map((item) => {
         return (
           <div
             key={item.title}
-            className="flex flex-col h-[100vw] text-center gap-y-2"
+            className=" self-center flex flex-col h-[100vw] md:h-[380px] text-center gap-y-2 "
           >
-            <div className="w-full flex flex-row justify-center">
+            <div className="w-full flex flex-row justify-center ">
               {!vids && (
                 <a href={item.href}>
                   <Image

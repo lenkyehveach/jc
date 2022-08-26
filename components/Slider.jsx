@@ -30,7 +30,7 @@ export default function Slider() {
   return (
     <div
       ref={ref}
-      className="w-full h-[200px] flex flex-row  items-center justify-center overflow-hidden"
+      className="w-full h-[200px] flex flex-row relative items-center justify-center overflow-hidden"
     >
       {count > 0 && (
         <button onClick={() => setCount(count + 1)}>
